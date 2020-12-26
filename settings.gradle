@@ -1,0 +1,2 @@
+include ':aiconsole'
+rootProject.name='aigadgets'
