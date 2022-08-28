@@ -1,2 +1,2 @@
-include ':aiconsole'
-rootProject.name='aigadgets'
+include ':liblogdog'
+rootProject.name='logdog'
