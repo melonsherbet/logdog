@@ -79,25 +79,25 @@ publishing {
                 }
             }
 
-//            pom.withXml {
-//                def dependenciesNode = asNode().appendNode('dependencies')
-//                configurations.implementation.allDependencies.withType(ModuleDependency) { ModuleDependency dp ->
-//                    if (dp.version != "unspecified") {
-//                        def dependencyNode = dependenciesNode.appendNode('dependency')
-//                        dependencyNode.appendNode('groupId', dp.group)
-//                        dependencyNode.appendNode('artifactId', dp.name)
-//                        dependencyNode.appendNode('version', dp.version)
-//                        if (dp.excludeRules.size() > 0) {
-//                            def exclusions = dependencyNode.appendNode('exclusions')
-//                            dp.excludeRules.each { ExcludeRule ex ->
-//                                def exclusion = exclusions.appendNode('exclusion')
-//                                exclusion.appendNode('groupId', ex.group)
-//                                exclusion.appendNode('artifactId', ex.module)
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.withType(ModuleDependency) { ModuleDependency dp ->
+                    if (dp.group == "com.github.pedrovgs") {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', dp.group)
+                        dependencyNode.appendNode('artifactId', dp.name)
+                        dependencyNode.appendNode('version', dp.version)
+                        if (dp.excludeRules.size() > 0) {
+                            def exclusions = dependencyNode.appendNode('exclusions')
+                            dp.excludeRules.each { ExcludeRule ex ->
+                                def exclusion = exclusions.appendNode('exclusion')
+                                exclusion.appendNode('groupId', ex.group)
+                                exclusion.appendNode('artifactId', ex.module)
+                            }
+                        }
+                    }
+                }
+            }
             artifact "$buildDir/outputs/aar/liblogdog-release.aar"
             //需要上传的资源jar路径或者是aar路径，这边可以填写一个生成jar的task，如makeJar方法就是一个生成jar的task
         }
