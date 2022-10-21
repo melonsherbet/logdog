@@ -42,6 +42,7 @@ public class LynxConfig implements Serializable, Cloneable {
   private TraceLevel filterTraceLevel;
   private Float textSizeInPx;
   private int samplingRate = 150;
+  private boolean focusable = true;
 
   public LynxConfig() {
     filter = "";
@@ -110,6 +111,14 @@ public class LynxConfig implements Serializable, Cloneable {
 
   public int getSamplingRate() {
     return samplingRate;
+  }
+
+  public boolean isFocusable() {
+    return focusable;
+  }
+
+  public void setFocusable(boolean focusable) {
+    this.focusable = focusable;
   }
 
   @Override public boolean equals(Object o) {

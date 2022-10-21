@@ -239,6 +239,10 @@ public class LynxView extends RelativeLayout implements LynxPresenter.View {
       lynxConfig.setMaxNumberOfTracesToShow(maxTracesToShow)
           .setFilter(TextUtils.isEmpty(filter) ? "" : filter)
           .setSamplingRate(samplingRate);
+
+      boolean focusable = attributes.getBoolean(R.styleable.lynx_focusable, lynxConfig.isFocusable());
+      lynxConfig.setFocusable(focusable);
+
       attributes.recycle();
     }
   }
@@ -255,6 +259,7 @@ public class LynxView extends RelativeLayout implements LynxPresenter.View {
   private void mapGui() {
     lv_traces = (ListView) findViewById(R.id.lv_traces);
     lv_traces.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+    lv_traces.setFocusable(lynxConfig.isFocusable());
   }
 
   private void initializeRenderers() {
