@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.github.nodeepshit.LynxView xmlns:lynx="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lv_logdog"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        lynx:max_traces_to_show="1000"
+        lynx:sampling_rate="0"
+        lynx:text_size="12sp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

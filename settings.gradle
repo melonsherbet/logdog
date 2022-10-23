@@ -1,2 +1,3 @@
 include ':liblogdog'
 rootProject.name='logdog'
+include ':sample'
