@@ -9,7 +9,11 @@ Screenshots
 Usage
 -------------
 To use Logdog Android library and get your logcat inside your app, follow these steps:
-* 1. Add ``Logdog`` **to your layouts** and configure it as you wish.
+* 1. import the lib in application module's build.gradle
+```java
+implementation 'io.github.nondeepshit:logdog:0.1.5'
+```
+* 2. Add ``Logdog`` **to your layouts** and configure it as you wish.
 ```xml
 <com.github.nodeepshit.LynxView xmlns:lynx="http://schemas.android.com/apk/res-auto"
         android:id="@+id/lv_logdog"
@@ -22,7 +26,7 @@ To use Logdog Android library and get your logcat inside your app, follow these 
         lynx:sampling_rate="0"
         lynx:text_size="12sp" />
 ```
-* 2. Use ``Logdog`` to print any log you concern.
+* 3. Use ``Logdog`` to print any log you concern.
 ```java
 
 Logdog.tip("this is tip message");
