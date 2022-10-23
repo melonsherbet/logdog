@@ -1,10 +1,10 @@
 logdog
 ========
-用于实时展示Android应用程序中开发者感兴趣的日志的库.
+一款用于实时展示Android应用程序中logcat日志的库, 特别适用于给用户展示软件运行过程中的关键日志信息.
 
 Screenshots
 --------------
-![image](https://github.com/nondeepshit/logdog/blob/main/art/screenshot1.jpg)
+![image](https://github.com/nondeepshit/logdog/blob/main/art/Screenshot_1.png)
 
 Usage
 -------------
