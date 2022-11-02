@@ -41,6 +41,25 @@ public class Logdog {
         listener.onTraceRead('T' + message);
     }
 
+    public static void log(TraceLevel level, String message) {
+        switch(level) {
+            case TIP:
+                tip(message);
+                break;
+            case DEBUG:
+                debug(message);
+                break;
+            case WARNING:
+                warning(message);
+                break;
+            case ERROR:
+                error(message);
+                break;
+            default:
+                info(message);
+        }
+    }
+
     interface Listener {
         void onTraceRead(String logcatTrace);
     }
