@@ -22,7 +22,15 @@ package com.github.nodeepshit.model;
  * @author Pedro Vicente Gomez Sanchez.
  */
 public enum TraceLevel {
-    TIP("T"), VERBOSE("V"), DEBUG("D"), INFO("I"), WARNING("W"), ERROR("E"), ASSERT("A"), WTF("F");
+    RESULT("R"),
+    TIP("T"),
+    VERBOSE("V"),
+    DEBUG("D"),
+    INFO("I"),
+    WARNING("W"),
+    ERROR("E"),
+    ASSERT("A"),
+    WTF("F");
 
     private final String value;
 
@@ -37,6 +45,9 @@ public enum TraceLevel {
     public static TraceLevel getTraceLevel(char traceString) {
         TraceLevel traceLevel;
         switch (traceString) {
+            case 'R':
+                traceLevel = TraceLevel.RESULT;
+                break;
             case 'T':
                 traceLevel = TraceLevel.TIP;
                 break;

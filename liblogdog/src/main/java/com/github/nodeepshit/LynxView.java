@@ -21,7 +21,6 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
@@ -32,8 +31,8 @@ import android.widget.Toast;
 import androidx.annotation.CheckResult;
 
 import com.github.nodeepshit.model.AndroidMainThread;
-import com.github.nodeepshit.model.Logdog;
 import com.github.nodeepshit.model.Logcat;
+import com.github.nodeepshit.model.Logdog;
 import com.github.nodeepshit.model.Lynx;
 import com.github.nodeepshit.model.TimeProvider;
 import com.github.nodeepshit.model.Trace;
@@ -65,8 +64,6 @@ public class LynxView extends RelativeLayout implements LynxPresenter.View {
 
   private RendererAdapter<Trace> adapter;
   private int lastScrollPosition;
-  private Listener mListener;
-  private int mLastSelectedPosition = -1;
 
   public LynxView(Context context) {
     this(context, null);
@@ -342,27 +339,5 @@ public class LynxView extends RelativeLayout implements LynxPresenter.View {
    */
   void setPresenter(LynxPresenter presenter) {
     this.presenter = presenter;
-  }
-
-  @Override
-  public boolean dispatchKeyEvent(KeyEvent event) {
-    if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN) {
-      if (mLastSelectedPosition == lv_traces.getAdapter().getCount() - 1) {
-        if (mListener != null) {
-          mListener.yieldFocus();
-        }
-      }
-    }
-    mLastSelectedPosition = lv_traces.getSelectedItemPosition();
-    return super.dispatchKeyEvent(event);
-  }
-
-  public void setListener(Listener listener) {
-    mListener = listener;
-  }
-
-  public interface Listener {
-
-    void yieldFocus();
   }
 }
