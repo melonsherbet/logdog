@@ -3,6 +3,7 @@ package com.github.nodeepshit.logdog.sample;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             Logdog.warning("this is warning message");
             Logdog.error("this is error message");
             Logdog.result("this is result message");
+            Logdog.response("this is response message");
 
             for (int i = 0; i < 10; i++) {
                 Logdog.info("this is info message");

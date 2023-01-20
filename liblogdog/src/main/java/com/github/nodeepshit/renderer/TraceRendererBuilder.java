@@ -47,6 +47,7 @@ public class TraceRendererBuilder extends RendererBuilder<Trace> {
     prototypes.add(new ErrorTraceRenderer(lynxConfig));
     prototypes.add(new WtfTraceRenderer(lynxConfig));
     prototypes.add(new ResultTraceRenderer(lynxConfig));
+    prototypes.add(new ResponseTraceRenderer(lynxConfig));
     setPrototypes(prototypes);
   }
 
@@ -74,6 +75,9 @@ public class TraceRendererBuilder extends RendererBuilder<Trace> {
         break;
       case RESULT:
         rendererClass = ResultTraceRenderer.class;
+        break;
+      case RESPONSE:
+        rendererClass = ResponseTraceRenderer.class;
         break;
       default:
         rendererClass = TraceRenderer.class;

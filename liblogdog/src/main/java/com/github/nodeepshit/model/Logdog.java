@@ -43,6 +43,11 @@ public class Logdog {
 
     public static void result(String message) {
         Log.d(TAG, message);
+        listener.onTraceRead('S' + message);
+    }
+
+    public static void response(String message) {
+        Log.d(TAG, message);
         listener.onTraceRead('R' + message);
     }
 
@@ -50,6 +55,9 @@ public class Logdog {
         switch(level) {
             case RESULT:
                 result(message);
+                break;
+            case RESPONSE:
+                response(message);
                 break;
             case TIP:
                 tip(message);

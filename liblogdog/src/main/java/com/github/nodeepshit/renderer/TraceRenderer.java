@@ -21,6 +21,7 @@ import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,10 +76,15 @@ class TraceRenderer extends Renderer<Trace> {
     String traceMessage = trace.getMessage();
     Spannable traceRepresentation = getTraceVisualRepresentation(trace.getLevel(), traceMessage);
     tv_trace.setText(traceRepresentation);
+    tv_trace.setGravity(getAlignment());
   }
 
   protected int getTraceColor() {
     return Color.BLACK;
+  }
+
+  protected int getAlignment() {
+    return Gravity.LEFT | Gravity.CENTER_VERTICAL;
   }
 
   private Spannable getTraceVisualRepresentation(TraceLevel level, String traceMessage) {

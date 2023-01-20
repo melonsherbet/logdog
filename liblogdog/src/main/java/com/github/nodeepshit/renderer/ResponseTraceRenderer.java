@@ -17,26 +17,32 @@
 package com.github.nodeepshit.renderer;
 
 import android.graphics.Color;
+import android.view.Gravity;
 
 import com.github.nodeepshit.LynxConfig;
 
 
 /**
- * TraceRenderer implementation used to render Trace objects with TraceLevel.ERROR trace level.
+ * TraceRenderer implementation used to render Trace objects with TraceLevel.INFO trace level.
  * <p>
  * To learn more about Renderers library take a look to the repository:
  * https://github.com/pedrovgs/Renderers
  *
  * @author Pedro Vicente Gomez Sanchez.
  */
-class ResultTraceRenderer extends TraceRenderer {
+class ResponseTraceRenderer extends TraceRenderer {
 
-    ResultTraceRenderer(LynxConfig lynxConfig) {
+    ResponseTraceRenderer(LynxConfig lynxConfig) {
         super(lynxConfig);
     }
 
     @Override
     protected int getTraceColor() {
-        return Color.rgb(49, 151, 62);
+        return Color.rgb(101, 64, 24);
+    }
+
+    @Override
+    protected int getAlignment() {
+        return Gravity.RIGHT | Gravity.CENTER_VERTICAL;
     }
 }
