@@ -31,6 +31,7 @@ public enum TraceLevel {
     WARNING("W"),
     ERROR("E"),
     ASSERT("A"),
+    UPDATE("U"),
     WTF("F");
 
     private final String value;
@@ -72,6 +73,9 @@ public enum TraceLevel {
                 break;
             case 'F':
                 traceLevel = TraceLevel.WTF;
+                break;
+            case 'U':
+                traceLevel = TraceLevel.UPDATE;
                 break;
             default:
                 traceLevel = TraceLevel.DEBUG;

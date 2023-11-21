@@ -18,7 +18,6 @@ package com.github.nodeepshit.presenter;
 
 import androidx.annotation.CheckResult;
 
-
 import com.github.nodeepshit.LynxConfig;
 import com.github.nodeepshit.model.Lynx;
 import com.github.nodeepshit.model.Trace;
@@ -42,6 +41,7 @@ public class LynxPresenter implements Lynx.Listener {
   private final View view;
   private final TraceBuffer traceBuffer;
   private boolean isInitialized;
+  private TraceLevel mLastLevel;
 
   public LynxPresenter(Lynx lynx, View view, int maxNumberOfTracesToShow) {
     validateNumberOfTracesConfiguration(maxNumberOfTracesToShow);
@@ -177,6 +177,10 @@ public class LynxPresenter implements Lynx.Listener {
   }
 
   private int updateTraceBuffer(List<Trace> traces) {
+    if (mLastLevel == TraceLevel.UPDATE && traces.get(0).getLevel() == TraceLevel.UPDATE) {
+      traceBuffer.removeLast();
+    }
+    mLastLevel = traces.get(0).getLevel();
     return traceBuffer.add(traces);
   }
 

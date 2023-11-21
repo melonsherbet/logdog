@@ -8,7 +8,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.nodeepshit.model.Logcat;
 import com.github.nodeepshit.model.Logdog;
 import com.github.nodeepshit.model.TraceLevel;
 
@@ -35,10 +34,27 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 1000);
 
+
         findViewById(R.id.b_add_new_message).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Logdog.info("this is new message");
+                if (view.getTag() == null) {
+                    view.setTag(new Integer(0));
+                }
+                Integer i = (Integer) view.getTag();
+                Log.i("AAA", "i=" + i);
+                if (i == 0) {
+                    Logdog.update("this");
+                } else if (i == 1) {
+                    Logdog.update("this is ");
+                } else if (i == 2) {
+                    Logdog.update("this is info");
+                } else if (i == 3) {
+                    Logdog.update("this is info message");
+                    i = 0;
+                }
+                i++;
+                view.setTag(i);
             }
         });
     }

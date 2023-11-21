@@ -54,6 +54,7 @@ public class Lynx {
 
     private String lowerCaseFilter = "";
     private Pattern regexpFilter;
+    private TraceLevel mLastLevel;
 
     public Lynx(Logcat logcat, Logdog console, MainThread mainThread, TimeProvider timeProvider) {
         this.listeners = new LinkedList<>();

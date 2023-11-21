@@ -51,6 +51,11 @@ public class Logdog {
         listener.onTraceRead('R' + message);
     }
 
+    public static void update(String message) {
+        Log.d(TAG, message);
+        listener.onTraceRead('U' + message);
+    }
+
     public static void log(TraceLevel level, String message) {
         switch(level) {
             case RESULT:
